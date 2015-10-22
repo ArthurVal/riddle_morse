@@ -25,7 +25,7 @@ PR2 robot have:
 
 	- a motion actuator, that can control PR2 within MORSE ;
 
-		-> Can be used through ROS topic named /morse_motion_PR2 (MSG = geometry_msgs::Pose)
+		-> Can be used through ROS topic named /morse_motion_PR2 (MSG = geometry_msgs::Twist)
 		
 Every object that you wish to detect are initially positionned under the ground. There are 10 entities of each object in case of multiple detection of the same object.
 
