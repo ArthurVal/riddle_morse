@@ -13,20 +13,20 @@ The main goal of this is to display in real time objects detected by the ORK nod
 Morse create the ADREAM environment with the PR2 robot in it. 
 PR2 robot have: 
 	- a pose sensor, which indicate the position of PR2 within Morse (MORSE global coordinates frame);
-		=> Automatically publishing to ROS topic named /morse_pose_PR2
+		-> Automatically publishing to ROS topic named /morse_pose_PR2
 	- an odom sensor, which indicate the position of PR2 relatively to its initial position and also create a frame on TF ;
-		=> Automatically publishing to ROS topic named /morse_odom_PR2
+		-> Automatically publishing to ROS topic named /morse_odom_PR2
 	- a motion actuator, that can control PR2 within MORSE ;
-		=> Can be used through ROS topic named /morse_motion_PR2 (MSG = geometry_msgs::Pose)
+		-> Can be used through ROS topic named /morse_motion_PR2 (MSG = geometry_msgs::Pose)
 		
 Every object that you wish to detect are initially positionned under the ground. There are 10 entities of each object in case of multiple detection of the same object.
 Each objects are represented as a 'robot' for Morse.
 
 Every objects have: 
 	- a pose sensor, which indicate the position of an object within Morse (MORSE global coordinates frame)
-		=> Automatically publishing to ROS topic named /pose_<nameObject>_<numObject> with <numObject> = {1, 2, 3, ... , 9, 10}
+		-> Automatically publishing to ROS topic named /pose_<nameObject>_<numObject> with <numObject> = {1, 2, 3, ... , 9, 10}
 	- a teleport actuator, which enable you to teleport an object wherever you want (relatively to the global frame of Morse) ;
-		=> Can be used through ROS topic named /morse_TP_<nameObject>_<numObject> with <numObject> = {1, 2, 3, ... , 9, 10} (MSG = geometry_msgs::Pose)
+		-> Can be used through ROS topic named /morse_TP_<nameObject>_<numObject> with <numObject> = {1, 2, 3, ... , 9, 10} (MSG = geometry_msgs::Pose)
 
 -> ORK_ROS_INTERFACE NODE:
 This node is a bridge between ORK and MORSE.
