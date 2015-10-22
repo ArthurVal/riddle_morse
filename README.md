@@ -121,6 +121,8 @@ Then copy what has been done for other objects to the new one (dont forget to ch
 /!\ Don't forget to change the initial pose of your object /!\
 
 -> ORK_MORSE_INTERFACE:
+Open file /riddle_pr2/ork_ros_morse/src/ork_morse_interface/src/main.cpp.
+
 First add your object to the N_OBJECT define const and add #define "objectName" "NUM"> under other defines corresponding to the other objects.
 
 Copy each variables associated to the other objects for your object. You will then need to modify:
@@ -128,7 +130,7 @@ Copy each variables associated to the other objects for your object. You will th
 - void callback_chgParams function: Add your id param to be able to change it online;
 - main function : Create your publisher etc ... and add your object to switch case condition.
 
-
+Don't forget to change /riddle_pr2/ork_ros_morse/src/ork_morse_interface/cfg/ORKMorse.cfg to add your object ID param.
 
 
 
