@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/home/arthur/ORK_RIDDLE_WS/devel/lib;/opt/ros/indigo/lib")

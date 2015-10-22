@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ork_morse_interface")
+set(ork_morse_interface_MAINTAINER "arthur <arthur@todo.todo>")
+set(ork_morse_interface_DEPRECATED "")
+set(ork_morse_interface_VERSION "0.0.0")
+set(ork_morse_interface_BUILD_DEPENDS "object_recognition_msgs" "roscpp" "rospy" "std_msgs")
+set(ork_morse_interface_RUN_DEPENDS "object_recognition_msgs" "roscpp" "rospy" "std_msgs")
+set(ork_morse_interface_BUILDTOOL_DEPENDS "catkin")

@@ -1,0 +1,2 @@
+ork_morse_interface
+-DCATKIN_DEVEL_PREFIX=/home/arthur/MORSE_DIR/riddle_pr2/ork_ros_morse/devel -DCMAKE_INSTALL_PREFIX=/home/arthur/MORSE_DIR/riddle_pr2/ork_ros_morse/install -G Unix Makefiles

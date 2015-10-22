@@ -1,0 +1,9 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~id_mug" : \b [str] A string parameter of the ORK_MORSE interface corresponding to the ID of the Mug min: , default: MUG, max: 
+- \b "~id_medic" : \b [str] A string parameter of the ORK_MORSE interface corresponding to the ID of the Medic box min: , default: MEDIC, max: 
+- \b "~id_penholder" : \b [str] A string parameter of the ORK_MORSE interface corresponding to the ID of the penHolder min: , default: PENHODLER, max: 
+- \b "~start_timeout" : \b [int] An Integer parameter corresponding to the time, in number of ros::loop, that the object will be displayed within morse. (current ros::loop is 100Hz -> startTimeout=100 means 1 sec etc...) min: 0, default: 200, max: 1000
+

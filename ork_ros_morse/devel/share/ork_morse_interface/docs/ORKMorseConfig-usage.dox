@@ -1,0 +1,10 @@
+\subsubsection usage Usage
+\verbatim
+<node name="ork_morse_interface" pkg="ork_morse_interface" type="ork_morse_interface">
+  <param name="id_mug" type="str" value="MUG" />
+  <param name="id_medic" type="str" value="MEDIC" />
+  <param name="id_penholder" type="str" value="PENHODLER" />
+  <param name="start_timeout" type="int" value="200" />
+</node>
+\endverbatim
+

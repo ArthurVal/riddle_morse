@@ -1,0 +1,8 @@
+prefix=/home/arthur/MORSE_DIR/riddle_pr2/ork_ros_morse/install
+
+Name: ork_morse_interface
+Description: Description of ork_morse_interface
+Version: 0.0.0
+Cflags: -I/home/arthur/MORSE_DIR/riddle_pr2/ork_ros_morse/install/include
+Libs: -L/home/arthur/MORSE_DIR/riddle_pr2/ork_ros_morse/install/lib 
+Requires: 
