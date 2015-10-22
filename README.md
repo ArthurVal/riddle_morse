@@ -10,8 +10,11 @@ It contains both MORSE configuration files and the ork_ros_morse bridge created 
 The main goal of this is to display in real time objects detected by the ORK node within MORSE simulator.
 
 -> MORSE: (More details on: https://www.openrobots.org/morse/doc/stable/morse.html)
-Morse create the ADREAM environment with the PR2 robot in it. 
+
+Morse create the ADREAM environment with the PR2 robot in it.
+
 PR2 robot have: 
+
 	- a pose sensor, which indicate the position of PR2 within Morse (MORSE global coordinates frame); 
 
 		-> Automatically publishing to ROS topic named /morse_pose_PR2
@@ -25,6 +28,7 @@ PR2 robot have:
 		-> Can be used through ROS topic named /morse_motion_PR2 (MSG = geometry_msgs::Pose)
 		
 Every object that you wish to detect are initially positionned under the ground. There are 10 entities of each object in case of multiple detection of the same object.
+
 Each objects are represented as a 'robot' for Morse.
 
 Every objects have: 
@@ -39,10 +43,15 @@ Every objects have:
 
 -> ORK_ROS_INTERFACE NODE:
 This node is a bridge between ORK and MORSE.
+
 It subscribes to both /linemod_recognized_object_array & /tabletop_recognized_object_array topics, listen this topics and autoomatically publishes to the /morse_TP_.. topics.
+
 Each object that has been detected in MORSE automatically disappear according to their timeout timers (can be dynamically change with rqt_reconfigure). 
+
 For each detection of ORK, it compares the current detection (from ORK) to detections already published on MORSE. 
+
 A new object will appear in MORSE if the current detection is not located within a box of 5 cm³ and its angle is different by 10 degrees (for each DOF).
+
 When ORK detects an object, it publishes its ID within the couchDB database. The ORK_ROS_INTEFACE node needs this information to teleport the right object in MORSE. You can modify online the ID of each objects thanks to rqt_reconfigure.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
