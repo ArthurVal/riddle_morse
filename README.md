@@ -9,7 +9,7 @@ This git repo contains all files created on Morse & Ros for the RIDDLE demonstra
 It contains both MORSE configuration files and the ork_ros_morse bridge created between ORK object recognition and Morse.
 The main goal of this is to display in real time objects detected by the ORK node within MORSE simulator.
 
--> MORSE: (More details on: https://www.openrobots.org/morse/doc/stable/morse.html)
+- MORSE: (More details on: https://www.openrobots.org/morse/doc/stable/morse.html)
 
 Morse create the ADREAM environment with the PR2 robot in it.
 
@@ -41,7 +41,7 @@ Every objects have:
 
 		-> Can be used through ROS topic named /morse_TP_<nameObject>_<numObject> with <numObject> = {1, 2, 3, ... , 9, 10} (MSG = geometry_msgs::Pose)
 
--> ORK_ROS_INTERFACE NODE:
+- ORK_ROS_INTERFACE NODE:
 This node is a bridge between ORK and MORSE.
 
 It subscribes to both /linemod_recognized_object_array & /tabletop_recognized_object_array topics, listen this topics and autoomatically publishes to the /morse_TP_.. topics.
@@ -58,11 +58,11 @@ When ORK detects an object, it publishes its ID within the couchDB database. The
 
 	RUN DEMO:
 	
--> Inside a terminal, run roscore first:
+- Inside a terminal, run roscore first:
 
 roscore
 
--> Then launch the RGBD camera driver (openni or freenect):
+- Then launch the RGBD camera driver (openni or freenect):
 
 roslaunch openni_launch openni.launch
 OR
@@ -70,27 +70,27 @@ roslaunch openni2_launch openni2.launch
 OR
 roslaunch freenect_launch freenect.launch
 
--> Don't forget to enable depth registration:
+- Don't forget to enable depth registration:
 
 rosrun rqt_reconfigure rqt_reconfigure
 
  -Inside camera/driver, check depth_registration and close the window.
 
--> Launch the TF tree of PR2 if you are not working with the robot:
+- Launch the TF tree of PR2 if you are not working with the robot:
 
 roslaunch ork_morse_interface tf_pr2.launch
 
--> Launch ORK:
+- Launch ORK:
 
 roslaunch object_recognition_core detection.launch tabletop:=0 linemod:=1 --screen
 
--> Run the interface node: 
+- Run the interface node: 
 
 rosrun ork_morse_interface ork_morse_interface_node
 
--> You can run again rqt_reconfigure to see the dynamical reconfiguration of object ID within ORK_MORSE_node reconfi param.
+- You can run again rqt_reconfigure to see the dynamical reconfiguration of object ID within ORK_MORSE_node reconfi param.
 
--> Run morse:
+- Run morse:
 
 morse run riddle_pr2
 
