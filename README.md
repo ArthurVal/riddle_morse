@@ -102,26 +102,26 @@ To add new objects, you will need to modify both MORSE files and ORK_ROS_INTERFA
 -> MORSE:
 - First, add a new robot to the MORSE file :
 
-morse add robot <nameRobot> riddle_pr2
+morse add robot "objectName" riddle_pr2
 
 It will automatically create files corresponding to your robot (sensors/actuators of your robots and the mesh file corresponding to its shape).
 
-- Add the teleport actuator to your new robot. Open the file /riddle_pr2/src/riddle_pr2/builder/robots/<nameRobot>.py and add thoses lines under the motion actuator:
+- Add the teleport actuator to your new robot. Open the file /riddle_pr2/src/riddle_pr2/builder/robots/"objectName".py and add thoses lines under the motion actuator:
 
 self.teleport = Teleport()
 self.append(self.teleport)
 
-- You can change the mesh file that will be used by MORSE to display your robot within the /riddle_pr2/data/riddle_pr2/robots/<nameRobot>.blend file.
+- You can change the mesh file that will be used by MORSE to display your robot within the /riddle_pr2/data/riddle_pr2/robots/"objectName".blend file.
 
 - Open the default.py file of you morse project. First add at the top of the file the line: 
 
-from riddle_pr2.builder.robots import <Namerobot>
+from riddle_pr2.builder.robots import "objectName"
 
 Then copy what has been done for other objects to the new one (dont forget to change names of variables !)
 /!\ Don't forget to change the initial pose of your object /!\
 
 -> ORK_MORSE_INTERFACE:
-First add your object to the N_OBJECT define const and add #define <NAMEOBJECT> <NUM> under other defines corresponding to the other objects.
+First add your object to the N_OBJECT define const and add #define "objectName" "NUM"> under other defines corresponding to the other objects.
 
 Copy each variables associated to the other objects for your object. You will then need to modify:
 - void callback_detection function: Add new if()else condition;
