@@ -2,9 +2,7 @@
 
 This git repo contains all files created on Morse & Ros for the RIDDLE demonstration on December 2015.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	DESCRIPTION: 
+##DESCRIPTION: 
 
 It contains both MORSE configuration files and the ork_ros_morse bridge created between ORK object recognition and Morse.
 The main goal of this is to display in real time objects detected by the ORK node within MORSE simulator.
@@ -54,68 +52,66 @@ A new object will appear in MORSE if the current detection is not located within
 
 When ORK detects an object, it publishes its ID within the couchDB database. The ORK_ROS_INTEFACE node needs this information to teleport the right object in MORSE. You can modify online the ID of each objects thanks to rqt_reconfigure.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	RUN DEMO:
+##RUN DEMO:
 	
 - Inside a terminal, run roscore first:
-
+```
 roscore
-
+```
 - Then launch the RGBD camera driver (openni or freenect):
-
-roslaunch openni_launch openni.launch
+```
+roslaunch openni_launch openni.launch depth_registration:=true
+```
 OR
-roslaunch openni2_launch openni2.launch
+```
+roslaunch openni2_launch openni2.launch depth_registration:=true
+```
 OR
-roslaunch freenect_launch freenect.launch
-
-- Don't forget to enable depth registration:
-
-rosrun rqt_reconfigure rqt_reconfigure
-
- -Inside camera/driver, check depth_registration and close the window.
+```
+roslaunch freenect_launch freenect.launch depth_registration:=true
+```
+- Don't forget to enable depth registration (use rqt_reconfigure)
 
 - Launch the TF tree of PR2 if you are not working with the robot:
-
+```
 roslaunch ork_morse_interface tf_pr2.launch
-
+```
 - Launch ORK:
-
+```
 roslaunch object_recognition_core detection.launch tabletop:=0 linemod:=1 --screen
-
+```
 - Run the interface node: 
-
+```
 rosrun ork_morse_interface ork_morse_interface_node
-
+```
 - You can run again rqt_reconfigure to see the dynamical reconfiguration of object ID within ORK_MORSE_node reconfi param.
 
 - Run morse:
-
+```
 morse run riddle_pr2
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	ADD NEW OBJECTS:
+##ADD NEW OBJECTS:
 	
 To add new objects, you will need to modify both MORSE files and ORK_ROS_INTERFACE node files.
 -> MORSE:
 - First, add a new robot to the MORSE file :
-
+```
 morse add robot "objectName" riddle_pr2
-
+```
 It will automatically create files corresponding to your robot (sensors/actuators of your robots and the mesh file corresponding to its shape).
 
 - Add the teleport actuator to your new robot. Open the file /riddle_pr2/src/riddle_pr2/builder/robots/"objectName".py and add thoses lines under the motion actuator:
 
-self.teleport = Teleport()
-self.append(self.teleport)
+*self.teleport = Teleport()*
+*self.append(self.teleport)*
 
 - You can change the mesh file that will be used by MORSE to display your robot within the /riddle_pr2/data/riddle_pr2/robots/"objectName".blend file.
 
 - Open the default.py file of you morse project. First add at the top of the file the line: 
 
-from riddle_pr2.builder.robots import "objectName"
+*from riddle_pr2.builder.robots import "objectName"*
 
 Then copy what has been done for other objects to the new one (dont forget to change names of variables !)
 /!\ Don't forget to change the initial pose of your object /!\
@@ -123,7 +119,7 @@ Then copy what has been done for other objects to the new one (dont forget to ch
 -> ORK_MORSE_INTERFACE:
 Open file /riddle_pr2/ork_ros_morse/src/ork_morse_interface/src/main.cpp.
 
-First add your object to the N_OBJECT define const and add #define "objectName" "NUM"> under other defines corresponding to the other objects.
+First add your object to the N_OBJECT define const and add #define "objectName" "NUM" under other defines corresponding to the other objects.
 
 Copy each variables associated to the other objects for your object. You will then need to modify:
 - void callback_detection function: Add new if()else condition;
