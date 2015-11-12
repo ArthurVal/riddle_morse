@@ -102,7 +102,7 @@ for robot_penholder in robot_penholder_list:
 		#Motion VW actuator
 motion = MotionXYW()
 motion.properties(ControlType = 'Position')
-#motion.add_interface('ros',topic="/morse_motion_pr2")
+motion.add_interface('ros',topic="/morse_motion_PR2")
 robot_pr2.append(motion)
 		#Keyboard control 
 keyboard = Keyboard()

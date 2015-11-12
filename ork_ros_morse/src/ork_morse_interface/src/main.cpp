@@ -44,7 +44,6 @@
 geometry_msgs::PoseStamped PoseMugOrk[N_ELEM];	//Variable containing the position of the object detected by ORK callback 
 unsigned int nNewPoseMugOrk = 0;
 
-
 geometry_msgs::PoseStamped PoseMedicOrk[N_ELEM];	//Variable containing the position of the object detected by ORK callback 
 unsigned int nNewPoseMedicOrk= 0;
 
@@ -96,8 +95,8 @@ int isPoseNew(geometry_msgs::PoseStamped& newPose, geometry_msgs::PoseStamped pt
 		
 			tf::Vector3 newPoseVector = newPoseQuaterion.getAxis();
 			tf::Vector3 newPoseArrayVector = poseArrayQuaterion.getAxis();
-			//Test angle between two Pose (5 degrees max)
-			if((newPoseVector.angle(newPoseArrayVector) <= 0.174) && //Angle between two vector inferior to 5 degrees
+			//Test angle between two Pose (10 degrees max)
+			if((newPoseVector.angle(newPoseArrayVector) <= 0.174) && //Angle between two vector inferior to 10 degrees
 			   ((newPoseQuaterion.getAngle() - poseArrayQuaterion.getAngle()) <= 0.174) &&
 			   ((newPoseQuaterion.getAngle() - poseArrayQuaterion.getAngle()) >= -0.174)
 				 ){			
@@ -300,6 +299,7 @@ int main(int argc, char *argv[]){
 	ros::Publisher MORSEPubMedic[N_ELEM];
 	ros::Publisher MORSEPubPenholder[N_ELEM];
 
+		//MUG
 	for(int i = 0 ; i < N_ELEM ; ++i){
 
 		std::stringstream topicName;
@@ -314,6 +314,7 @@ int main(int argc, char *argv[]){
 			ROS_INFO("[ORK_MORSE node] Publishing to %s: FAILED", tmpTopicName.c_str());			
 	}
 
+		//MEDIC
 	for(int i = 0 ; i < N_ELEM ; ++i){
 
 		std::stringstream topicName;
@@ -328,6 +329,7 @@ int main(int argc, char *argv[]){
 			ROS_INFO("[ORK_MORSE node] Publishing to %s: FAILED", tmpTopicName.c_str());
 	}
 
+		//PENHOLDER
 	for(int i = 0 ; i < N_ELEM ; ++i){
 
 		std::stringstream topicName;
@@ -343,7 +345,6 @@ int main(int argc, char *argv[]){
 	}
 
 	//Create initPose msgs
-		//MUG
 	for(int i = 0 ; i < N_OBJECT ; ++i){
 		for(int j = 0 ; j < N_ELEM ; ++j){
 			initPose[i][j].position.x = j;
