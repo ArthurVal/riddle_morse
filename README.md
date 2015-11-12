@@ -128,5 +128,7 @@ Copy each variables associated to the other objects for your object. You will th
 
 Don't forget to change /riddle_pr2/ork_ros_morse/src/ork_morse_interface/cfg/ORKMorse.cfg to add your object ID param.
 
+##KNOW BUGS:
 
+Currently, one bug still remain. Sometimes, objects don't disapears. It is due to the timeout variable of each objects but I don't know what's not working well ... 
 
