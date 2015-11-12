@@ -11,7 +11,7 @@ The main goal of this is to display in real time objects detected by the ORK nod
 
 Morse create the ADREAM environment with the PR2 robot in it.
 
-PR2 robot have: 
+PR2 robot has: 
 
 	- a pose sensor, which indicate the position of PR2 within Morse (MORSE global coordinates frame); 
 
